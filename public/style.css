@@ -1,0 +1,18 @@
+.navbar {
+    width: 100%;
+    color: black;
+    background: red;
+    display: flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar li a{
+    color: black;
+    padding: 0 10px;
+    justify-content: spac
