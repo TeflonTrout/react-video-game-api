@@ -69,7 +69,7 @@ background: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(102,0,255,1) 100%);
 
 .navbar li a{
   color: black;
-  padding: 0 10px;
+  padding: 50px 20px;
   justify-content: space-around;
 }
 

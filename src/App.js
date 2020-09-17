@@ -55,11 +55,7 @@ function App() {
       </form>
     </div>
     <div>
-      <ul>
-        <li>
-          K
-        </li>
-      </ul>
+      
     </div>
     </Router>
   );
