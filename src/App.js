@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import axios from 'axios';
 import './App.css';
+import {VideoGameProvider} from './VideoGameContext'
 import Game from './Game';
+import VideoGameList from './VideoGameList';
 import Nav from './Nav';
 
 function App() {
@@ -34,30 +36,42 @@ function App() {
   const getSearch = e => {
     e.preventDefault();
     setQuery(search);
+    setSearch("")
   }
 
   return (
-    <Router>
-    <div className="App">
-      <Nav />
-      <form onSubmit={getSearch}>  
-        <h1 className='search-head'>VIDEO GAME SEARCH</h1>
-        <input className='input-box' type='text' placeholder='Search' value={search} onChange={updateSearch}/>
-        <button className='submit-button' type="submit">Search</button>
-        {games.map(results => (
-          <Game
-          key={results.id}
-          title={results.name}
-          releaseDate={results.released}
-          cover={results.background_image}
-          />
-        ))}
-      </form>
-    </div>
-    <div>
-      
-    </div>
-    </Router>
+    <VideoGameProvider>
+      <Router>
+        <Switch>
+          <div className="App">
+            <Route path='/' exact>  
+              <div className='home-page'>    
+              <Nav />
+              <form onSubmit={getSearch}>  
+              <div className='search-bar'>
+                <input className='input-box' type='text' placeholder='Search' value={search} onChange={updateSearch}/>
+                <button className='submit-btn' type="submit">Search</button>
+              </div>
+                {games.map(game => (
+                  
+                  <Game
+                  key={game.id}
+                  title={game.name}
+                  releaseDate={game.released}
+                  cover={game.background_image}
+                  />
+                ))}
+               </form>
+               </div>
+             </Route>
+            <Route path='/list'>
+              <Nav />
+              <VideoGameList />
+            </Route>
+           </div>
+          </Switch>
+        </Router>
+    </VideoGameProvider>
   );
 }
 
