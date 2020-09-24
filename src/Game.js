@@ -4,7 +4,8 @@ import { VideoGameContext } from './VideoGameContext';
 const Game = ({title,releaseDate,cover,genres}) => {
     const [videoGames, setVideoGames] = useContext(VideoGameContext)
     
-    function addGame() {
+    const addGame = (e) => {
+        e.preventDefault();
         setVideoGames(videoGames => [...videoGames, {id: (Date.now()), title: title}])
         console.log(videoGames)
     }
@@ -15,7 +16,7 @@ const Game = ({title,releaseDate,cover,genres}) => {
             <p>Released on {releaseDate}</p>
             <p>{genres}</p>
             <img src={cover} />
-            <button className='add-btn' onClick={addGame}>Add {title}</button>
+            <button className='add-btn' onClick={e => addGame(e)}>Add {title}</button>
         </div>
     );
 }

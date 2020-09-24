@@ -27,6 +27,10 @@
   margin-top: 5px;
 }
 
+.input-box::placeholder {
+  color: black;
+}
+
 .submit-btn {
   font-size: 20px;
   border: none;
@@ -120,7 +124,8 @@
 }
 
 .gameList-page {
-  margin-top: -21px;
+  font-size: 30px;
+  margin-top: -49px;
   width: 100%;
   min-height: 100vh;
   display: block;
@@ -148,3 +153,8 @@
   color: red;
 }
 
+@media only screen and (max-width=500px) {
+  .navbar .links {
+    margin: 10px;
+  }
+}

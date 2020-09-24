@@ -3,7 +3,7 @@ import React, {useState, createContext} from 'react'
 export const VideoGameContext = createContext()
 
 export const VideoGameProvider = props => {
-    const [videoGames, setVideoGames] = useState([{id: 0, title: "Test"}]);
+    const [videoGames, setVideoGames] = useState([]);
     
     return (
         <VideoGameContext.Provider value={[videoGames, setVideoGames]}>

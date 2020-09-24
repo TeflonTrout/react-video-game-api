@@ -49,7 +49,7 @@ function App() {
               <Nav />
               <form onSubmit={getSearch}>  
               <div className='search-bar'>
-                <input className='input-box' type='text' placeholder='Search' value={search} onChange={updateSearch}/>
+                <input className='input-box' type='text' onFocus={e => e.target.placeholder=""} placeholder='Game Title' value={search} onChange={updateSearch}/>
                 <button className='submit-btn' type="submit">Search</button>
               </div>
                 {games.map(game => (
